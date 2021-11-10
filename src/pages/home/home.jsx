@@ -6,7 +6,7 @@ const Home = (props) => {
 
     return (
         <div className="home">
-            <Nav title="Home"/>
+            <Nav title="Home" goBack={false}/>
             <div className="home__content">
                 
             </div>
