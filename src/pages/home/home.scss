@@ -1,6 +1,39 @@
 .home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     &__content{
         border: 1px solid red;
         height: 100vh;
+        width: 80vw;
+        display: grid;
+        // grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+        &>a{
+            text-decoration: none;
+            color: red;
+        }
+        &-higher{
+            border: 1px solid red;
+            width: 25vw;
+            height: 25vh;
+        }
+        &-shithead{
+            border: 1px solid red;
+            width: 25vw;
+            height: 25vh;
+        }
+        &-blackjack{
+            border: 1px solid red;
+            width: 25vw;
+            height: 25vh;
+        }
+        &-bus{
+            border: 1px solid red;
+            width: 25vw;
+            height: 25vh;
+        }
     }
 }
