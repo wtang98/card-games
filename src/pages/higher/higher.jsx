@@ -1,14 +1,16 @@
 import React from 'react'
+import ReactDOM, { render } from 'react-dom';
 import './higher.scss'
 import Nav from '../../components/nav/nav'
 import { Button } from '@material-ui/core'
 
 const Higher = (props) => {
+
+    
     const {deckOfCards} = props
-
     let copy = [...deckOfCards()];
-
-
+    
+    
     let random = 52;
     const dealtCard = Math.floor(Math.random()*random);
     const getRandomCard = () => {
@@ -16,31 +18,29 @@ const Higher = (props) => {
         return copy[dealtCard];
     }
     console.log(getRandomCard().Value);
-
+    
     const removeCard = () => {
         copy[dealtCard] = copy[copy.length-1];
         copy.pop();
         return copy;
     }
-
+    
     const callBoth = () => {
         getRandomCard();
         removeCard();
-        return(
-            <p>{getRandomCard().Value}</p>
-        )
+        console.log(getRandomCard().Value);
+        ReactDOM.render(<p>{getRandomCard().Value}</p>, document.getElementById("higherValue"));
     }
     callBoth();
-    console.log(callBoth());
-
+    
     return (
         <div className="higher">
             <Nav title="Higher or Lower" goBack={true}/>
             <div className="higher__content">
-            <Button variant="contained" onClick={() => callBoth()}>fat mf</Button>
-            <div className="higherValue">
-            {callBoth}
-            </div>
+                <Button variant="contained" onClick={callBoth}>fat mf</Button>
+                <div id="higherValue">
+                    {callBoth}
+                </div>
             </div>
         </div>
     )
