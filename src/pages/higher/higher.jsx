@@ -15,7 +15,7 @@ const Higher = (props) => {
         random--;
         return copy[dealtCard];
     }
-    console.log(getRandomCard());
+    console.log(getRandomCard().Value);
 
     const removeCard = () => {
         copy[dealtCard] = copy[copy.length-1];
@@ -24,15 +24,23 @@ const Higher = (props) => {
     }
 
     const callBoth = () => {
-        return getRandomCard(), removeCard();
+        getRandomCard();
+        removeCard();
+        return(
+            <p>{getRandomCard().Value}</p>
+        )
     }
+    callBoth();
     console.log(callBoth());
 
     return (
         <div className="higher">
             <Nav title="Higher or Lower" goBack={true}/>
             <div className="higher__content">
-            <Button onClick={callBoth()}>fat mf</Button>
+            <Button variant="contained" onClick={() => callBoth()}>fat mf</Button>
+            <div className="higherValue">
+            {callBoth}
+            </div>
             </div>
         </div>
     )
